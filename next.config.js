@@ -29,5 +29,6 @@ module.exports = {
 
     return config;
   },
-  assetPrefix: isProd ? '/viet-refugee-sonification/' : ''
+  assetPrefix: isProd ? '/viet-refugee-sonification/' : '',
+    images: { loader: "custom" },
 };
