@@ -3,6 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
+const isProd = process.env.NODE_ENV === 'production';
+
 // module.exports = nextConfig
 module.exports = {
   webpack(config, options) {
@@ -27,4 +29,5 @@ module.exports = {
 
     return config;
   },
+  assetPrefix: isProd ? '/viet-refugee-sonification/' : ''
 };
