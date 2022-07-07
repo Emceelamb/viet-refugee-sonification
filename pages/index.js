@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import * as Tone from "tone";
 import { Player } from "tone";
@@ -125,11 +124,9 @@ export default function Home() {
               </div>
             </div>
             <div className="w-64">
-              <Image
-                src={boatImg}
+              <img
+                src={boatImg.src}
                 alt="Picture of the author"
-                width="2448"
-                height="1608px"
               />
             </div>
             <p>
