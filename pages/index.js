@@ -14,6 +14,8 @@ import { DataComponet } from "../components/DataComponent";
 
 import { PlayIcon, StopIcon } from "@heroicons/react/outline";
 
+import { SketchComponent } from "../p5/base.p5";
+
 export default function Home() {
   const [value, setValue] = useState(0);
   const [loop, setLoop] = useState(false);
@@ -63,11 +65,6 @@ export default function Home() {
     setIsPlaying(false);
   };
 
-  const handlePlay = () => {
-    console.log("HI");
-    //play a middle 'C' for the duration of an 8th note
-    synth.triggerAttackRelease("C4", "8n");
-  };
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -124,10 +121,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-64">
-              <img
-                src={boatImg.src}
-                alt="Picture of the author"
-              />
+              <img src={boatImg.src} alt="Picture of the author" />
             </div>
             <p>
               On April 30, 1975, Sài Gòn fell, sparking a humanitarian crisis
@@ -145,9 +139,8 @@ export default function Home() {
             </p>
             <p>
               In this project, a traditional Southern Vietnamese opera, cải
-              lương, is played by speakers enclosed in the form of a traditional
-              Vietnamese fishing boat. The music is distorted by the number of
-              refugees each year using data collected by the UNHCR.
+              lương, is played on loop and a distortion effect is applied determined by the number of
+              refugees each year and accompanied by a generated noise wave.
             </p>
             <p>
               <a
@@ -158,15 +151,27 @@ export default function Home() {
               </a>
             </p>
           </div>
-          <div className="flex-1 space-y-8 m-auto pr-16 bg-gray-200 h-full flex items-center justify-center">
-            <div className="flex space-x-4 items-center justify-center">
+          <div className="flex-1 space-y-8 m-auto bg-gray-200 h-full flex items-center justify-center">
+            <div className="flex flex-col  items-center justify-center">
               {currentYear ? (
-                <DataComponet
-                  year={currentYear["Year"]}
-                  refugeeNumber={addCommas(
-                    currentYear["Refugees under UNHCR's mandate"]
-                  )}
-                />
+                <>
+                  <DataComponet
+                    year={currentYear["Year"]}
+                    refugeeNumber={addCommas(
+                      currentYear["Refugees under UNHCR's mandate"]
+                    )}
+                  />
+
+                  <div className="mt-8">
+                    <SketchComponent
+                      data={
+                        currentYear
+                          ? currentYear["Refugees under UNHCR's mandate"]
+                          : "Hello"
+                      }
+                    />
+                  </div>
+                </>
               ) : (
                 <>
                   {audioLoaded ? (
