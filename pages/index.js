@@ -65,7 +65,6 @@ export default function Home() {
     setIsPlaying(false);
   };
 
-
   useEffect(() => {
     if (!isPlaying) return;
     if (!currentYear) setCurrentYear(data[0]);
@@ -139,8 +138,9 @@ export default function Home() {
             </p>
             <p>
               In this project, a traditional Southern Vietnamese opera, cải
-              lương, is played on loop and a distortion effect is applied determined by the number of
-              refugees each year and accompanied by a generated noise wave.
+              lương, is played on loop and a distortion effect is applied
+              determined by the number of refugees each year and accompanied by
+              a generated noise wave.
             </p>
             <p>
               <a
@@ -151,18 +151,19 @@ export default function Home() {
               </a>
             </p>
           </div>
-          <div className="flex-1 space-y-8 m-auto bg-gray-200 h-full flex items-center justify-center">
-            <div className="flex flex-col  items-center justify-center">
+          <div className="flex-1 space-y-8 m-auto bg-gray-200 h-full ">
+            <div className="flex flex-col  items-center justify-between h-full">
               {currentYear ? (
                 <>
-                  <DataComponet
-                    year={currentYear["Year"]}
-                    refugeeNumber={addCommas(
-                      currentYear["Refugees under UNHCR's mandate"]
-                    )}
-                  />
+                  <div className="pt-24 flex flex-col items-center justify-center">
+                    <DataComponet
+                      year={currentYear["Year"]}
+                      refugeeNumber={addCommas(
+                        currentYear["Refugees under UNHCR's mandate"]
+                      )}
+                    />
+                  </div>
 
-                  <div className="mt-8">
                     <SketchComponent
                       data={
                         currentYear
@@ -170,12 +171,11 @@ export default function Home() {
                           : "Hello"
                       }
                     />
-                  </div>
                 </>
               ) : (
                 <>
                   {audioLoaded ? (
-                    <>
+                    <div className="h-full flex flex-col justify-center items-center">
                       {!isPlaying ? (
                         <Button onClick={play}>
                           <PlayIcon className="w-16" />
@@ -183,7 +183,7 @@ export default function Home() {
                       ) : (
                         <Button onClick={stop}>Stop</Button>
                       )}
-                    </>
+                    </div>
                   ) : (
                     "Loading Audio"
                   )}
