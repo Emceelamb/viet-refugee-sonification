@@ -10,7 +10,7 @@ For exhibition, I accompany the audio visual display, with a miniature boat of a
 
 Check out the project at the [webpage](https://emceelamb.github.io/viet-refugee-sonification).
 
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/945606906?h=3043875633" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+View the documentation from the [exhibition](https://player.vimeo.com/video/945606906?h=3043875633).
 
 ![display](./assets/v1.jpg)
 
